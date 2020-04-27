@@ -1,0 +1,5 @@
+rasa==1.9.5
+nltk
+bs4
+tensorflow_text
+boto3

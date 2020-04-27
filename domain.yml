@@ -1,0 +1,175 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- inform
+- previous
+- mood_great
+- affirm
+- goodbye
+- chitchat
+- bot_challenge
+- deny
+- mood_unhappy
+- out_of_scope
+- repeat_search
+- thanks
+- chitchat/ask_weather
+- chitchat/ask_name
+- chitchat/ask_health
+- utter_previous
+- date
+- deny_qq
+- affirm_qq
+- hello
+- news
+- cases
+- fines
+- url
+- utter_output
+entities:
+- category
+- dated
+- keyword
+- name
+- previous
+- '{link}'
+slots:
+  category:
+    type: text
+  dated:
+    type: text
+  keyword:
+    type: list
+  name:
+    type: unfeaturized
+  prev_count:
+    type: text
+  previous:
+    type: list
+responses:
+  utter_welcome_message:
+  - buttons:
+    - payload: News
+      title: News Articles
+    - payload: Cases
+      title: Case Studies / Reports
+    - payload: Fines
+      title: Fines
+    text: Hello. What can I help you find today?
+  utter_greet:
+  - buttons:
+    - payload: News
+      title: News Articles
+    - payload: Cases
+      title: Case Studies / Reports
+    - payload: Fines
+      title: Fines
+    text: Hello. What can I help you find today?
+  utter_news:
+  - text: What news-articles can I help you find today?
+  utter_cases:
+  - text: What cases/case-studies can I help you find today?
+  utter_fines:
+  - text: Which fines can I help you find today?
+  utter_sorry_help:
+  - text: Sure. What else can I help you find?
+  utter_help:
+  - buttons:
+    - payload: /affirm
+      title: Yes, thanks. It did!
+    - payload: /deny
+      title: No, not really!
+    text: Did that help you?
+  utter_diff_ques:
+  - text: Sorry could not find any information on that. Can you try some other question?
+  utter_rephrase:
+  - text: Sorry could not find any information on that. Could you try rephrasing your
+      question?
+  utter_not_found:
+  - text: Sorry I could not find any information on that. Can you try rephrasing your
+      question?
+  utter_happy:
+  - text: That's great!
+  utter_help_find:
+  - buttons:
+    - payload: News
+      title: News Articles
+    - payload: Cases
+      title: Case Studies / Reports
+    - payload: Fines
+      title: Fines
+    text: What can I help you find today?
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_info:
+  - text: '[ {title} ] ({link})'
+  utter_question:
+  - buttons:
+    - payload: /affirm_qq
+      title: Yes, that is all
+    - payload: /deny_qq
+      title: No, I have another question
+    text: Is that all? Or would you like to know something more?
+  utter_default:
+  - text: Sorry, I didn't understand that. Can you please try rephrasing your question.
+  utter_goodbye:
+  - text: Talk to you later! Have a great day.
+  utter_noworries:
+  - text: My pleasure.
+  - text: You are welcome!
+  utter_relevant_info:
+  - button:
+    - payload: '[ {title} ] ({link})'
+      title: '{title}'
+    text: Here is some relevant information:- {content}
+  utter_sorry:
+  - text: Oh oh.. Sorry will try again. Can you try rephrasing your question?
+  utter_will_help:
+  - text: Sure. Let me check that for you.
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_output:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: 'Make a bet on when the world will end:'
+          type: mrkdwn
+        accessory:
+          type: datepicker
+          initial_date: '2019-05-21'
+          placeholder:
+            type: plain_text
+            text: Select a date
+actions:
+- utter_output
+- utter_welcome_message
+- action_get_info
+- action_slot_reset
+- repeat_search
+- respond_chitchat
+- respond_faq
+- utter_cheer_up
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_help_find
+- utter_iamabot
+- utter_info
+- utter_not_found
+- utter_noworries
+- utter_question
+- utter_relevant_info
+- utter_sorry
+- utter_rephrase
+- utter_diff_ques
+- utter_help
+- utter_will_help
+- utter_sorry_help
+- utter_news
+- utter_cases
+- utter_fines
